@@ -1,0 +1,4 @@
+%h2= @task.name
+- if @task.description != ''
+  %p.description= @task.description
+%a{:href => "/delete/#{@task.id}", :method => 'delete'} Delete

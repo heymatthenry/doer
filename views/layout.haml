@@ -1,0 +1,11 @@
+%html
+  %head
+    %link{:href => "/main.css", :rel => "stylesheet", :type => "text/css"}
+    %title Doer
+  %body
+    #header
+      %h1
+        %a{:href => '/'} Doer 
+      %span Get Things Done
+    #container
+      = yield

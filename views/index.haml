@@ -1,7 +1,5 @@
-%html
-  %head
-    %title Sinatra
-  %body
-    %ol
-      - @tasks.each do |task|
-        %li= "#{task.name}: #{task.description}"
+%h2 Tasks
+%ol
+  - @tasks.each do |task|
+    %li 
+      %a{:href => "#{task.id}"}= "#{task.name}: #{task.description}"
