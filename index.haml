@@ -1,0 +1,7 @@
+%html
+  %head
+    %title Sinatra
+  %body
+    %ol
+      - @users.each do |user|
+        %li= "#{user.login}: #{user.email}"
