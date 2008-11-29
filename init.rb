@@ -11,3 +11,13 @@ class Task
   property :name,        String
   property :description, Text
 end
+
+get '/new' do
+  haml :new
+end
+
+post '/create' do
+  @task = Task.new
+  @task.attributes = {:name => params[:name], :description => params[:description] }
+  @task.save
+end

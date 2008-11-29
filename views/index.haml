@@ -3,5 +3,5 @@
     %title Sinatra
   %body
     %ol
-      - @users.each do |user|
-        %li= "#{user.login}: #{user.email}"
+      - @tasks.each do |task|
+        %li= "#{task.name}: #{task.description}"
