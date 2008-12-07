@@ -2,4 +2,5 @@
 %ol
   - @tasks.each do |task|
     %li 
-      %a{:href => "#{task.id}"}= "#{task.name}: #{task.description}"
+      %a{:href => task.id}= task.name
+%a{:href => "/new"}New Task 

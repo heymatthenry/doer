@@ -1,0 +1,20 @@
+%form{:action => "/edit/#{@task.id}", :method => 'post'}
+  %input{:type => 'hidden', :name => '_method', :value => 'put'}
+  - if @errors
+    %ul
+    - @errors.each do |error|
+      %li= error
+  
+  %fieldset
+    %legend Edit task
+
+    %label{:for => 'task_category'} Category:
+    %input{:name => 'category', :type => 'text', :id => 'task_category', :value => @task.category}
+  
+    %label{:for => 'task_name'} Task:
+    %input{:name => 'name', :type => 'text', :id => 'task_name', :value => @task.name}
+
+    %label{:for => 'task_description'} Description:
+    %textarea{:name => 'description', :id => 'task_description'}= @task.description
+        
+    %input{:type => 'submit', :value => 'Update', :class => 'submit'}
