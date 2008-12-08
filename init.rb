@@ -12,7 +12,13 @@ class Task
   property :description, Text
   property :due,         Date
   property :category,    Text
+  property :completed,   Boolean,  :default => false
+end
 
+helpers do
+  def checked(value)
+    params[:completed]
+  end
 end
 
 # index
@@ -52,9 +58,10 @@ put '/edit/:id' do
   @errors = params[:errors]
   @task = Task.get!(params[:id])
   if @task.update_attributes(:name         => params[:name],
-                          :description  => params[:description],
-                          #:due         => params[:due],
-                          :category     => params[:category])  
+                             :description  => params[:description],
+                             #:due         => params[:due],
+                             :category     => params[:category],
+                             :completed    => params[:completed])
     redirect "/#{@task.id}"
   else
     redirect '/edit/:id'
@@ -64,11 +71,8 @@ end
 # destroy
 get '/destroy/:id' do
   @task = Task.get!(params[:id])
-  if @task.destroy
-    redirect '/'
-  else
-    redirect '/:id'
-  end
+  @task.destroy
+  redirect '/'
 end
 
 # show

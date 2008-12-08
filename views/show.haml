@@ -1,6 +1,7 @@
 %h2= @task.name
 - if @task.description != ''
   %p.description= @task.description
+%p= @task.completed ? "Done!" : "Not done yet!"
 %a{:href => "/destroy/#{@task.id}", :method => 'delete'} Delete
 |
 %a{:href => "/edit/#{@task.id}"} Edit

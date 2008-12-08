@@ -16,5 +16,10 @@
 
     %label{:for => 'task_description'} Description:
     %textarea{:name => 'description', :id => 'task_description'}= @task.description
-        
+    
+    %label{:for => 'task_completed'} Completed?:
+    %select{:name => 'completed', :id => 'task_completed'}      
+      %option{:value => 't'} Yep
+      %option{:value => 'f'} Not yet
+    
     %input{:type => 'submit', :value => 'Update', :class => 'submit'}
