@@ -15,15 +15,9 @@ class Task
   property :completed,   Boolean,  :default => false
 end
 
-helpers do
-  def checked(value)
-    params[:completed]
-  end
-end
-
 # index
 get '/' do
-  @tasks = Task.all
+  @tasks = Task.all(:completed => false)
   haml :index
 end
 
